@@ -10,6 +10,14 @@
 .blinking {
   animation: blink 2s infinite;
 }
+    .star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: white;
+  border-radius: 50%;
+  animation: twinkle 2s infinite alternate;
+}
   body {
     background: linear-gradient(135deg, #1e1e2f, #2a2a40);
     color: #f4f4f4;
@@ -67,5 +75,9 @@ button:hover {
   <button>Labels</button>
   <p>4.Захватить и переместить (Move on Board) — берёшь его и ведёшь по пути: To Do → In Progress → Done.🕯🗝🔭</p>
   <button>Move on Board</button>
+  <div class="star" style="top:10%; left:20%;"></div>
+<div class="star" style="top:30%; left:50%;"></div>
+<div class="star" style="top:70%; left:80%;"></div>
+<div class="star" style="top:90%; left:10%;"></div>
 </body>
 </html>
