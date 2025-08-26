@@ -1,85 +1,91 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
-  <style>
-     @keyframes blink {
-  0%   { opacity: 1; }
-  50%  { opacity: 0.3; }
-  100% { opacity: 1; }
+<meta charset="UTF-8">
+<style>
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
 }
 .blinking {
-  animation: blink 2s infinite;
+  animation: blink 3s infinite;
 }
-    .star {
-    position:absolute;
-    width:7px; height:7px;
-    background:gold;
-    opacity:0.5;
-    animation: twinkle 4s infinite alternate;
-  }
-  @keyframes twinkle {
-    0%{opacity:0.3;}
-    50%{opacity:1;}
-    100%{opacity:0.3;}
-  }
-  body {
-     background: url('https://i.pinimg.com/1200x/08/99/15/08991500a3f0b578aaf3492d73bd2e32.jpg') center/cover no-repeat;
-  }
-  h1, h2 {
-    color: #ffcc70;
-    text-shadow: 0 0 6px rgba(255, 204, 112, 0.6);
-  }
-     h2, p {
-  text-shadow: 0 0 10px gold;
+
+.star {
+  position: absolute;
+  width: 6px; height: 6px;
+  background: gold;
+  border-radius: 50%;
+  opacity: 0.5;
+  animation: twinkle 4s infinite alternate;
 }
-  p {
-    margin-bottom: 1rem;
-  }
-  .legend {
-    border-left: 4px solid #ffcc70;
-    padding-left: 1rem;
-    margin: 2rem 0;
-    font-style: italic;
-  }
-  a {
-    color: #70d6ff;
-    text-decoration: none;
-  }
-  a:hover {
-    text-decoration: underline;
-  }
-    p {
-    color: #746636;
-    }
-    button {
-  background: purple;
-  color: white;
+@keyframes twinkle {
+  0% { opacity: 0.3; }
+  50% { opacity: 1; transform: scale(1.3); }
+  100% { opacity: 0.3; }
+}
+
+body {
+  background: url(‘https://i.pinimg.com/1200x/00/d6/09/00d6090fa07f4aaefbed05fcc737b3c7.jpg ') center/cover no-repeat;
+  font-family: "Trebuchet MS", sans-serif;
+}
+
+h1, h2 {
+  color: #ffcc70;
+  text-shadow: 0 0 10px rgba(255, 204, 112, 0.7);
+}
+
+p {
+  margin-bottom: 1rem;
+  color: #746636;
+  text-shadow: 0 0 6px gold;
+}
+
+button {
   padding: 10px 20px;
   border-radius: 12px;
   border: none;
   cursor: pointer;
+  margin: 6px 0;
+  transition: 0.3s;
 }
-button:hover {
-  background: violet;
-}
+button:hover { transform: scale(1.05); }
+
+button.create { background: darkslateblue; color: white; }
+button.priority { background: crimson; color: white; }
+button.labels { background: teal; color: white; }
+button.move { background: darkgreen; color: white; }
 </style>
-  <title>Легенда о багах</title>
-  </head>
+<title>Легенда о багах</title>
+</head>
 <body>
-  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/FullMoon2010.jpg/320px-FullMoon2010.jpg" 
-     alt="Луна" width="250">
-  <h1 class="blinking">🌟Легенда: «Хроники Хранителя Багов»🌟</h1>
-<h2>⚔️Ты — Хранитель Багов!👤🎒👓</h2>
-<h2>☀️Каждый день тебе открывается Портал JIRA — врата в мир Задач и Событий. 
-Чтобы мир оставался в порядке, нужно выполнять ежедневный ритуал:</h2>
-  <p>1. Призвать задачу (Create Issue) — ты вызываешь существо из хаоса: даёшь ему имя (Summary) и описываешь его сущность (Description).🌸</p>
-  <button>Create Issue</button>
-  <p>2. Определить силу врага (Priority) — метишь его цветом: слабый (Low), средний (Medium), опасный (High), критический (Critical).✅⚠️🔴</p>
-  <button>Priority</button>
-  <p>3. Пометить символом (Labels) — наносишь на него знак (например: UI, Bug, Critical).🔖✨</p>
-  <button>Labels</button>
-  <p>4.Захватить и переместить (Move on Board) — берёшь его и ведёшь по пути: To Do → In Progress → Done.🕯🗝🔭</p>
-  <button>Move on Board</button>
+
+<img src=" https://i.pinimg.com/1200x/b3/0a/30/b30a3068247de4bce5fc20f4b537383d.jpg /320px-FullMoon2010.jpg" 
+     alt=" Хранитель Багов" width="250">
+
+<h1 class="blinking">🌟Легенда: «Хроники Хранителя Багов»🌟</h1>
+
+<section>
+  <h2>⚔️ Ты — Хранитель Багов! 👤🎒👓</h2>
+  <p>☀️ Каждый день тебе открывается Портал JIRA — врата в мир Задач и Событий. 
+  Чтобы мир оставался в порядке, выполняй ритуалы:</p>
+
+  <ul>
+    <li>1. Призвать задачу (Create Issue) 🌸 <br>
+    <button class="create">Create Issue</button></li>
+
+    <li>2. Определить силу врага (Priority) ✅⚠️🔴 <br>
+    <button class="priority">Priority</button></li>
+
+    <li>3. Пометить символом (Labels) 🔖✨ <br>
+    <button class="labels">Labels</button></li>
+
+    <li>4. Захватить и переместить (Move on Board) 🕯🗝🔭 <br>
+    <button class="move">Move on Board</button></li>
+  </ul>
+</section>
+
 <div class="star" style="top:10%; left:20%;"></div>
 <div class="star" style="top:30%; left:50%;"></div>
 <div class="star" style="top:70%; left:80%;"></div>
@@ -87,6 +93,8 @@ button:hover {
 <div class="star" style="top:20%; left:70%;"></div>
 <div class="star" style="top:80%; left:30%;"></div>
 <div class="star" style="top:40%; left:60%;"></div>
-<div class="star" style="top:50%; left:40%;"></div>  
+<div class="star" style="top:50%; left:40%;"></div>
+
 </body>
 </html>
+
