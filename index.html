@@ -2,6 +2,14 @@
 <html>
 <head>
   <style>
+     @keyframes blink {
+  0%   { opacity: 1; }
+  50%  { opacity: 0.3; }
+  100% { opacity: 1; }
+}
+.blinking {
+  animation: blink 2s infinite;
+}
   body {
     background: linear-gradient(135deg, #1e1e2f, #2a2a40);
     color: #f4f4f4;
@@ -36,7 +44,7 @@
   <title>Легенда о багах</title>
   </head>
 <body>
-  <h1>🌟Легенда: «Хроники Хранителя Багов»🌟</h1>
+  <h1 class="blinking">🌟Легенда: «Хроники Хранителя Багов»🌟</h1>
 <h2>⚔️Ты — Хранитель Багов!👤🎒👓</h2>
 <h2>☀️Каждый день тебе открывается Портал JIRA — врата в мир Задач и Событий. 
 Чтобы мир оставался в порядке, нужно выполнять ежедневный ритуал:</h2>
