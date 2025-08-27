@@ -73,19 +73,19 @@ button.move { background: #2e8b57; color: white; }
 
   <ul>
     <li>1. Призвать задачу (Create Issue) 🌸 <br>
-    <button class="create">Create Issue</button></li>
+    <button class="carete create">Create Issue</button></li>
 
     <li>2. Определить силу врага (Priority) ✅⚠️🔴 <br>
-    <button class="priority">Priority</button></li>
+    <button class="carete priority">Priority</button></li>
 
     <li>3. Пометить символом (Labels) 🔖✨ <br>
-    <button class="labels">Labels</button></li>
+    <button class="carete labels">Labels</button></li>
 
     <li>4. Захватить и переместить (Move on Board) 🕯🗝🔭 <br>
-    <button class="move">Move on Board</button></li>
+    <button class="carete move">Move on Board</button></li>
   </ul>
 </section>
-
+  
   <script> 
   function createStars(count) {
     for (let i = 0; i < count; i++) {
@@ -102,8 +102,26 @@ button.move { background: #2e8b57; color: white; }
       document.body.appendChild(star);
     }
   }
-  createStars(30);
+  createStars(50);
 </script>
+
+  <script>
+  document.querySelector(".create").addEventListener("click", function() {
+    alert("Воодушевись и сделай!");
+  });
+
+  document.querySelector(".priority").addEventListener("click", function() {
+    alert("Как быстро нужно его победить?!");
+  });
+  document.querySelector(".labels").addEventListener("click", function() {
+    alert("Какой образ вызывает?");
+  });
+
+  document.querySelector(".move").addEventListener("click", function() {
+    alert("Давай пройдем этот путь!");
+  });
+</script>
+
 
 </body>
 </html>
