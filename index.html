@@ -29,6 +29,7 @@
 body {
   background: url('https://i.pinimg.com/1200x/00/d6/09/00d6090fa07f4aaefbed05fcc737b3c7.jpg') center/cover no-repeat;
   font-family: "Trebuchet MS", sans-serif;
+  text-align text-align: center;
 }
 
 h1, h2 {
@@ -56,6 +57,34 @@ button.create { background: #008080; color: white; }
 button.priority { background: #cd5c5c; color: white; }
 button.labels { background: #ffcc00; color: white; }
 button.move { background: #2e8b57; color: white; }
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 160px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%; 
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+  
 </style>
 <title>Легенда о багах</title>
 </head>
@@ -73,7 +102,8 @@ button.move { background: #2e8b57; color: white; }
 
   <ul>
     <li>1. Призвать задачу (Create Issue) 🌸 <br>
-    <button class="carete create">Create Issue</button></li>
+    <button class="tooltip carete create">Create Issue</button></li>
+    <span class="tooltiptext">Эта кнопка открывает баги 🐛</span>
 
     <li>2. Определить силу врага (Priority) ✅⚠️🔴 <br>
     <button class="carete priority">Priority</button></li>
