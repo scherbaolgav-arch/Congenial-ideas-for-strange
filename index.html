@@ -2,16 +2,24 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
+<title>Легенда о багах</title>
+  
 <style>
 
 @keyframes blink {
-  0%, 100% { opacity: 0,7; }
+  0%, 100% { opacity: 0,6; }
   50% { opacity: 0.1; }
 }
 .blinking {
-  animation: blink 6s infinite;
+  animation: blink 4s infinite;
 }
-
+  
+@keyframes twinkle {
+  0% { opacity: 0.3; }
+  50% { opacity: 1; transform: scale(1.3); }
+  100% { opacity: 0.3; }
+}
+  
 .star {
   position: absolute;
   width: 9px; height: 9px;
@@ -21,38 +29,34 @@
   animation: twinkle 4s infinite alternate;
   pointer-events: none;
 }
-@keyframes twinkle {
-  0% { opacity: 0.3; }
-  50% { opacity: 1; transform: scale(1.3); }
-  100% { opacity: 0.3; }
-}
 
   body {
   margin: 0;
   padding: 0;
   background: url('https://i.pinimg.com/1200x/ab/3b/80/ab3b80020c3c697ba3beba45a6595bcf.jpg') no-repeat center center fixed;
-  background-size: cover; /* вот эта магия! */
+  background-size: cover; 
 }
 
 h1 {
   color: #fffdd0;
+  font-size: 42px;
   text-shadow: 0 0 3px #000;
   text-align: center;
-  text-shadow: 0 0 10px rgba(192, 192, 192, 0.3);
 }
 
   h2 {
   color: #08304b;
-  text-align: center;
   font-size: 36px;
+  text-align: center;
   text-shadow: 0 0 10px rgba(192, 192, 192, 0.5);
 }
+  
 p {
   margin-bottom: 1rem;
-  color: #fff;
-  text-shadow: 0 0 4px #000;
-  text-align: center;
+  color: #005342;
   font-size: 24px;
+  text-align: center;
+  text-shadow: 0 0 4px #005343;
 }
 ul li {
   margin-bottom: 1rem;
@@ -63,48 +67,26 @@ ul li {
 }
   
 button {
-  padding: 10px 20px;
+  padding: 12px 25px;
   border-radius: 12px;
-  border: none;
+  border: 2px solid #fffdd0;
+  color: white;
+  font-weight: bold;
   cursor: pointer;
   margin: 6px 0;
-  transition: 0.3s;
+  transition: 0.3s, background 0.3s;
 }
-button:hover { transform: scale(1.05); }
-
-button.create { background: #008080; color: white; }
-button.priority { background: #cd5c5c; color: white; }
-button.labels { background: #ffcc00; color: white; }
-button.move { background: #2e8b57; color: white; }
-
-.tooltip {
-  position: relative;
-  display: inline-block;
+button:hover { 
+  transform: scale(1.05); 
+  background: rgba(255, 255, 255, 0.1);
 }
 
-.tooltip .tooltiptext {
-  visibility: hidden;
-  width: 160px;
-  background-color: black;
-  color: #fff;
-  text-align: center;
-  border-radius: 6px;
-  padding: 5px;
-  position: absolute;
-  z-index: 1;
-  bottom: 125%; 
-  left: 50%;
-  transform: translateX(-50%);
-  opacity: 0;
-  transition: opacity 0.3s;
-}
+button.create { background: #008080; }
+button.priority { background: #cd5c5c; }
+button.labels { background: #ffcc00; }
+button.move { background: #2e8b57; }
 
-.tooltip:hover .tooltiptext {
-  visibility: visible;
-  opacity: 1;
-}
-
-  .button-link {
+.button-link {
   display: inline-block;
   padding: 6px 12px;
   background-color: #4CAF50;
@@ -113,18 +95,45 @@ button.move { background: #2e8b57; color: white; }
   border-radius: 6px;
   cursor: pointer;
 }
-.button-link:hover {
+.button-link: hover {
   background-color: #45a049;
 }
-  
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 180px;
+  background: rgba(0, 0, 0, 0.75);
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 6px;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%; 
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+} 
 </style>
-<title>Легенда о багах</title>
+
 </head>
 <body>
 
   <div style="display: flex;">
 <img src="https://i.pinimg.com/1200x/b3/0a/30/b30a3068247de4bce5fc20f4b537383d.jpg" 
      alt="Хранитель Багов" width="205" style="margin-right: 10px;">
+    
 <span><h1 class="blinking">👻 Моргай медленнее! 😊<br>Ты уже видишь это?🐞 🐞 🐞</h1></span>
 </div>
   
