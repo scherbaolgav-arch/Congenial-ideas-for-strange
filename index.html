@@ -19,6 +19,7 @@
   border-radius: 50%;
   opacity: 0.5;
   animation: twinkle 4s infinite alternate;
+  pointer-events: none;
 }
 @keyframes twinkle {
   0% { opacity: 0.3; }
@@ -33,7 +34,7 @@
   background-size: cover; /* вот эта магия! */
 }
 
-h1, {
+h1 {
   color: #fffdd0;
   text-shadow: 0 0 3px #000;
   text-align: center;
@@ -126,7 +127,7 @@ button.move { background: #2e8b57; color: white; }
 <span><h1 class="blinking">👻 Моргай медленнее! 😊<br>Ты уже видишь это?🐞 🐞 🐞</h1></span>
 </div>
   
-  <h1 class=🌟Легенда: «Хроники Хранителя Багов»🌟</h1>
+  <h1>🌟Легенда: «Хроники Хранителя Багов»🌟</h1>
 
 <section>
   <h2>⚔️ Ты — Хранитель Багов! 👤🎒👓</h2>
@@ -138,7 +139,7 @@ button.move { background: #2e8b57; color: white; }
     <span style="font-size: 22px; margin-right: 10px;">🌸</span>
       <div>
      Призвать задачу (Create Issue) 🌸
-         <div class="tooltip" style="display: inline-block;">
+         <div class="tooltip">
     <button class="carete create">Create Issue</button>
     <span class="tooltiptext">Эта кнопка Создает 🐛</span>
         </div>
@@ -149,7 +150,7 @@ button.move { background: #2e8b57; color: white; }
     <span style="font-size: 22px; margin-right: 10px;">🕦</span>
       <div>
      Определить силу врага (Priority) ✅⚠️🔴 
-      <div class="tooltip" style="display: inline-block;">
+      <div class="tooltip">
     <button class="carete priority">Priority</button>
     <span class="tooltiptext">Эта кнопка Опознает 🔎</span>
         </div>
@@ -160,7 +161,7 @@ button.move { background: #2e8b57; color: white; }
     <span style="font-size: 22px; margin-right: 10px;">🎭</span>
       <div>
     Пометить символом (Labels) 🔖✨ 
-      <div class="tooltip" style="display: inline-block;">
+      <div class="tooltip">
     <button class="carete labels">Labels</button>
     <span class="tooltiptext">Эта кнопка Наносит метку 🔖</span>
         </div>
@@ -171,7 +172,7 @@ button.move { background: #2e8b57; color: white; }
   <span style="font-size: 22px; margin-right: 10px;">🤹‍♂️</span>
   <div>
     Захватить и переместить (Move on Board) 🕯🗝🔭 
-    <div class="tooltip" style="display: inline-block;">
+    <div class="tooltip">
       <button class="carete move" id="moveBtn">
         Move on Board
       </button>
@@ -202,19 +203,18 @@ button.move { background: #2e8b57; color: white; }
   createStars(150);
 </script>
 
-  <script>
-  document.querySelector(".create").addEventListener("click", function() {
-    alert("Воодушевись и сделай!");
-  });
+const messages = {
+  create: "Воодушевись и сделай!",
+  priority: "Как быстро нужно его победить?!",
+  labels: "Какой образ вызывает?"
+};
 
-  document.querySelector(".priority").addEventListener("click", function() {
-    alert("Как быстро нужно его победить?!");
+Object.keys(messages).forEach(cls => {
+  document.querySelector("." + cls).addEventListener("click", () => {
+    alert(messages[cls]);
   });
-  document.querySelector(".labels").addEventListener("click", function() {
-    alert("Какой образ вызывает?");
-  });
-</script>
-
+});
+  
 <script>
   document.getElementById("moveBtn").addEventListener("click", () => {
     window.open("https://www.atlassian.com/", "_blank");
