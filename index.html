@@ -203,7 +203,8 @@ button.move { background: #2e8b57; color: white; }
   createStars(150);
 </script>
 
-const messages = {
+<script>
+  const messages = {
   create: "Воодушевись и сделай!",
   priority: "Как быстро нужно его победить?!",
   labels: "Какой образ вызывает?"
@@ -214,6 +215,7 @@ Object.keys(messages).forEach(cls => {
     alert(messages[cls]);
   });
 });
+</script>
   
 <script>
   document.getElementById("moveBtn").addEventListener("click", () => {
