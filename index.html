@@ -58,11 +58,18 @@ p {
   text-shadow: 0 0 4px #005343;
 }
 ul li {
-  margin-bottom: 1rem;
+  display: flex;           
+  align-items: center; 
+  margin-bottom: 10px;
   color: #000;         
   text-align: left;       
   font-size: 24px;
   font-weight: 700
+}
+
+ul li span {
+  font-size: 22px;
+  margin-right: 10px;
 }
   
 button {
@@ -144,8 +151,8 @@ button.move { background: #2e8b57; }
   Чтобы мир оставался в порядке, выполняй ритуалы:</p>
 
   <ul>
-    <li style="display: flex; align-items: center; margin-bottom: 10px;">
-    <span style="font-size: 22px; margin-right: 10px;">🌸</span>
+    <li>
+    <span>🌸</span>
       <div>
      Призвать задачу (Create Issue) 🌸
          <div class="tooltip">
