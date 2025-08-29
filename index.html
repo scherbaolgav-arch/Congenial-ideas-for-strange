@@ -76,8 +76,6 @@ ul li span {
 
    input {
       padding: 10px;
-      text-align: center
-      color: #000;
       border-radius: 5px;
       border: 1px solid #555;
     }
@@ -166,8 +164,9 @@ button.move { background: #2e8b57; }
 
 <section>
   <h2>⚔️ Ты — Хранитель Багов! 👤🎒👓</h2><br>
-  <input type="text" id="heroInput" placeholder="Введи имя героя">
-  <button onclick="showHero()">Что же дальше?!🔮</button>
+  <input type="text" id="heroInput" placeholder="<span stile="text-align: center;  color: #000;">"Введи имя героя"></span>
+  <span stile="text-align: center;  color: #000;">
+  <button onclick="showHero()"><span stile="text-align: center;  color: #000;">"Что же дальше?!🔮"></span></button>
 
   <div id="output"></div>
   
