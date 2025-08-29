@@ -37,7 +37,16 @@
   font-family: Arial, sans-serif;
   color: white;
 }
-
+  
+body.light {
+  background: #fff;
+  color: #000;
+}
+body.dark {
+  background: #111;
+  color: #eee;
+}
+  
 h1 {
   color: #fffdd0;
   font-size: 56px;
@@ -169,6 +178,8 @@ button.move { background: #2e8b57; }
      alt="Хранитель Багов" width="205" style="margin-right: 10px;">
     
 <span><h1 class="blinking special-title">👻 Моргай медленнее! 😊<br>Ты уже видишь это?🐞 🐞 🐞</h1></span>
+
+    <button class="toggle" style="text-align: right;">🌗 Переключить тему</button>
 </div>
   
   <h1>🌟Легенда: «Хроники Хранителя Багов»🌟</h1>
@@ -281,6 +292,14 @@ Object.keys(messages).forEach(cls => {
       }
     }
   </script>
+
+<script>  
+  const btn = document.querySelector('.toggle');
+btn.addEventListener('click', () => {
+  document.body.classList.toggle('dark');
+  document.body.classList.toggle('light');
+});
+</script>
     
 </body>
 </html>
