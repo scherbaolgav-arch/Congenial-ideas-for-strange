@@ -135,6 +135,7 @@ button.create { background: #008080; }
 button.priority { background: #cd5c5c; }
 button.labels { background: #ffcc00; }
 button.move { background: #2e8b57; }
+button.visual { background: #c41010; }  
 
 .button-link {
   display: inline-block;
@@ -297,10 +298,8 @@ button.move { background: #2e8b57; }
      <div>
   <p>👉 Visual 🐞</p>
       <div class="tooltip">
-    <button class="carete create">Что ты видишь?👀</button>
-    <span class="tooltiptext">👁‍🗨Неровный текст или кнопки<br>👁‍🗨Перекрывающиеся изображения или тексты<br>👁‍🗨Проблемы с адаптивом элементов<br>👁‍🗨  👁‍🗨  👁‍🗨<br>
-   А это ФИЧА!? 😈 
-    </span>
+    <button class="carete visual">Что ты видишь?👀</button>
+    <span class="tooltiptext">Это не мираж!?🏝</span>
         </div>
       </div>
   <p>👉 Functional 🐞</p>
@@ -330,6 +329,8 @@ button.move { background: #2e8b57; }
   create: "Воодушевись и сделай!",
   priority: "Как быстро нужно его победить?!",
   labels: "Какой образ вызывает?"
+  visual: "👁‍🗨Неровный текст или кнопки<br>👁‍🗨Перекрывающиеся изображения или тексты<br>👁‍🗨Проблемы с адаптивом элементов<br>👁‍🗨  👁‍🗨  👁‍🗨<br>
+   А это ФИЧА!? 😈"
 };
 
 Object.keys(messages).forEach(cls => {
