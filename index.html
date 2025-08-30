@@ -142,7 +142,7 @@ button.create { background: #008080; }
 button.priority { background: #cd5c5c; }
 button.labels { background: #ffcc00; }
 button.move { background: #2e8b57; }
-button.visual { background: #c41010; }  
+button.visual { background: #c41010; margin-left: 50px; }  
 
 .button-link {
   display: inline-block;
@@ -342,8 +342,10 @@ button.visual { background: #c41010; }
 };
 
 Object.keys(messages).forEach(cls => {
-  document.querySelector("." + cls).addEventListener("click", () => {
-    alert(messages[cls]);
+  document.querySelectorAll("." + cls).forEach(el => {
+    el.addEventListener("click", () => {
+      alert(messages[cls]);
+    });
   });
 });
 </script>
