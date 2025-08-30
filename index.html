@@ -181,6 +181,22 @@ button.move { background: #2e8b57; }
   visibility: visible;
   opacity: 1;
 } 
+
+.accordion {
+  background: #e4ffbd;
+  border: 2px solid #92a27a;
+  border-radius: 8px;
+  padding: 10px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.panel {
+  display: none; /* по умолчанию скрыт */
+  padding: 10px;
+  background: #f9f9f9;
+}
+  
 </style>
 </head>
   
@@ -256,6 +272,15 @@ button.move { background: #2e8b57; }
    </ul>
   
 </section>
+
+  <button class="accordion">🕸 Сегодня Я поймаю:</button>
+<div class="panel">
+  <p>👉 Content 🐞</p>
+  <p>👉 Visual 🐞</p>
+  <p>👉 Functional 🐞</p>
+  <p>👉 Perfomance 🐞</p>
+  <p>👉 Crash 🐞</p>
+</div>
   
   <script> 
   function createStar() {
@@ -311,6 +336,13 @@ Object.keys(messages).forEach(cls => {
 btn.addEventListener('click', () => {
   document.body.classList.toggle('dark');
   document.body.classList.toggle('light');
+});
+</script>
+
+<script> 
+  document.querySelector(".accordion").addEventListener("click", function() {
+  const panel = document.querySelector(".panel");
+  panel.style.display = (panel.style.display === "block") ? "none" : "block";
 });
 </script>
     
