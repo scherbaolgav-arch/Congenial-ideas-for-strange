@@ -12,11 +12,18 @@
 .blinking {
   animation: blink 4s infinite;
 }
-  
+
 @keyframes twinkle {
-  0% { opacity: 0.3; }
-  50% { opacity: 1; transform: scale(1.3); }
-  100% { opacity: 0.3; }
+  from { transform: scale(1); }
+  to { transform: scale(1.1); }
+}
+
+@keyframes colorChange {
+  0%   { color: red; }
+  25%  { color: orange; }
+  50%  { color: green; }
+  75%  { color: blue; }
+  100% { color: purple; }
 }
   
 .star {
@@ -29,25 +36,23 @@
   pointer-events: none;
 }
 
- .dragon {
+.dragon {
   display: flex;
-  justify-content: center; 
   font-size: 150px;
-  margin: 20px 0;
-  animation: twinkle 3s infinite alternate;
-  position: relative; 
-  z-index: 10;
+  margin: 40px auto;
+  animation: twinkle 3s infinite alternate, colorChange 5s infinite linear;
 }
-
+  
   body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
   background: url('https://i.pinimg.com/1200x/ab/3b/80/ab3b80020c3c697ba3beba45a6595bcf.jpg') no-repeat center center;
   background-size: cover; 
+  background-attachment: scroll; 
   font-family: Arial, sans-serif;
   color: white;
-  background-attachment: scroll; 
+  overflow-x: hidden; 
   min-height: 100vh; 
 }
 
@@ -145,8 +150,16 @@ button:hover {
 button.create { background: #008080; }
 button.priority { background: #cd5c5c; }
 button.labels { background: #ffcc00; }
-button.move { background: #2e8b57; }
-button.visual { background: #c41010; margin-left: 170px; }  
+button.move { background: #2e8b57; } 
+button.visual {
+  background: #c41010;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 5px 10px;
+  margin-left: 10px;
+  cursor: pointer;
+}
 
 .button-link {
   display: inline-block;
@@ -200,33 +213,39 @@ button.visual { background: #c41010; margin-left: 170px; }
   border-radius: 8px;
   padding: 10px;
   font-size: 18px;
-  cursor: pointer;
+  cursor: pointer;  
 }
 .accordion-btn {
   display: flex;
-  border-radius: 6px;
-  margin: 15px 200px;
+  justify-content: center;
+  margin: 20px auto;
   text-align: center;
   color: #000; 
   background: #dbe5ed;
+  border-radius: 6px;
   position: relative; 
-  z-index: 10;
+  z-index: 10;  
 }
 
 .panel {
-  display: none; 
-  padding: 15px;
-  border: 1px solid #000; 
-  width: 500px; 
+  max-height: 0;
+  overflow: hidden;
+  padding: 0 15px;
+  border: 1px solid #000;
+  width: 500px;
   border-radius: 6px;
-  margin: 25px 200px;
+  margin: 25px auto;
   background: url('https://i.pinimg.com/736x/af/98/f9/af98f9f939ff146034b2ff912c78c70f.jpg');
   background-size: cover;
-  text-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-  position: relative; 
-  z-index: 10;
-}  
-  
+  text-shadow: 0 0 5px rgba(0,0,0,0.3);
+  transition: max-height 0.6s ease-out, padding 0.4s ease-out;
+}
+
+.panel.open {
+  max-height: 500px; /* или больше, в зависимости от контента */
+  padding: 15px;
+}
+
 </style>
 </head>
   
@@ -304,21 +323,17 @@ button.visual { background: #c41010; margin-left: 170px; }
 </section>
 
   <button class="accordion accordion-btn">🕸 Сегодня я захвачу в плен:</button>
-<div class="panel">
-  <p>👉 Content 🐞</p>
-     <div>
-  <p>👉 Visual 🐞</p>
-      <div class="tooltip">
-    <button class="carete visual" style="display: flex; justify-content: center;">Что ты видишь?👀</button>
-    <span class="tooltiptext">Это не мираж!?🙈</span>
-        </div>
-      </div>
-  <p>👉 Functional 🐞</p>
-  <p>👉 Perfomance 🐞</p>
-  <p>👉 Crash 🐞</p>
-</div>
+  <div class="panel">
+    <p>👉 Content 🐞</p>
+    <p>👉 Visual 🐞 
+      <button class="visual">Что ты видишь?👀</button>
+    </p>
+    <p>👉 Functional 🐞</p>
+    <p>👉 Perfomance 🐞</p>
+    <p>👉 Crash 🐞</p>
+  </div>
 
-<span class="dragon">🐉</span>
+  <span class="dragon">🐉</span>
   
   <script> 
   function createStar() {
@@ -339,19 +354,20 @@ button.visual { background: #c41010; margin-left: 170px; }
 
 <script>
   const messages = {
-  create: "Воодушевись и сделай!",
-  priority: "Как быстро нужно его победить?!",
-  labels: "Какой образ вызывает?",
-  visual: "🎯Неровный текст или кнопки; 🎯Перекрывающиеся изображения или тексты; 🎯Проблемы с адаптивом элементов; Это точно Не ФИЧА ❓ 😈"
-};
+      create: "Воодушевись и сделай!",
+      priority: "Как быстро нужно его победить?!",
+      labels: "Какой образ вызывает?",
+      visual: "👁‍🗨 Неровный текст или кнопки\n👁‍🗨 Перекрывающиеся изображения или тексты\n👁‍🗨 Проблемы с адаптивом элементов\n👁‍🗨 А это ФИЧА!? 😈"
+    };
 
-Object.keys(messages).forEach(cls => {
-  document.querySelectorAll("." + cls).forEach(el => {
-    el.addEventListener("click", () => {
-      alert(messages[cls]);
+    Object.keys(messages).forEach(cls => {
+      const el = document.querySelector("." + cls);
+      if (el) {
+        el.addEventListener("click", () => {
+          alert(messages[cls]);
+        });
+      }
     });
-  });
-});
 </script>
   
 <script>
@@ -382,10 +398,10 @@ btn.addEventListener('click', () => {
 
 
 <script> 
-    document.querySelector(".accordion").addEventListener("click", function() { 
-      const panel = document.querySelector(".panel"); 
-      panel.style.display = (panel.style.display === "block") ? "none" : "block"; 
-    }); 
+   document.querySelector(".accordion").addEventListener("click", function () {
+      const panel = document.querySelector(".panel");
+      panel.classList.toggle("open");
+    });
 </script>
   
     
