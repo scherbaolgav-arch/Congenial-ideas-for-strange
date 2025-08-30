@@ -37,13 +37,14 @@
 }
 
 .dragon {
-  display: flex;
+  display: block;
   font-size: 150px;
   margin: 40px auto;
+  text-align: center;
   animation: twinkle 3s infinite alternate, colorChange 5s infinite linear;
 }
   
-  body {
+ body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
@@ -395,15 +396,13 @@ btn.addEventListener('click', () => {
   document.body.classList.toggle('light');
 });
 </script>
-
-
+  
 <script> 
    document.querySelector(".accordion").addEventListener("click", function () {
       const panel = document.querySelector(".panel");
       panel.classList.toggle("open");
     });
 </script>
-  
     
 </body>
 </html>
