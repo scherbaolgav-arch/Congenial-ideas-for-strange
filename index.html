@@ -375,14 +375,15 @@ button.crash {
       <button class="crash">Всё пропало?!⁉️</button></p>
   </div>
 
- <div class="tooltip">
+  <div>
+  <button hidden id="dragon"></button>
+  <label for="dragon"></label>
+   <div class="tooltip">
     <span class="dragon">🐉</span>
-    <button class="carete move" id="moveBtn">Я - дракон!</button>
+    <button class="carete move" id="dragon">Я - дракон!</button>
+   </div>
 </div>
-  
-  
-  
-  
+    
   <script> 
   function createStar() {
       const star = document.createElement("div");
