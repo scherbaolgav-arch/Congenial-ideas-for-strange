@@ -179,6 +179,25 @@ button.functional {
   margin-left: 10px;
   cursor: pointer;
 }
+button.perfomance {
+  background: #c41010;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 5px 10px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+button.crash {
+  background: #c41010;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 5px 10px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
 
 .button-link {
   display: inline-block;
@@ -344,15 +363,15 @@ button.functional {
   <button class="accordion accordion-btn">🕸 Сегодня я захвачу в плен:</button>
   <div class="panel">
     <p>👉 Content 🐞
-      <button class="content">А как на счеи содержания?📚</button></p>
+      <button class="content">Как на счет содержания?📚</button></p>
     <p>👉 Visual 🐞 
-      <button class="visual">Что ты видишь?👀</button>
-    </p>
+      <button class="visual">Что ты видишь?👀</button></p>
     <p>👉 Functional 🐞
-      <button class="functional">Что ты делаешь?🛠</button>
-    </p>
-    <p>👉 Perfomance 🐞</p>
-    <p>👉 Crash 🐞</p>
+      <button class="functional">Что ты делаешь?🛠</button></p>
+    <p>👉 Perfomance 🐞
+      <button class="perfomance">Я самый быстрый!🚀</button></p>
+    <p>👉 Crash 🐞
+      <button class="crash">Всё пропало?!⁉️</button></p>
   </div>
 
   <span class="dragon">🐉</span>
@@ -381,7 +400,9 @@ button.functional {
       labels: "Какой образ вызывает?",
       visual: "👁‍🗨 Неровный текст или кнопки\n👁‍🗨 Перекрывающиеся изображения или тексты\n👁‍🗨 Проблемы с адаптивом элементов\n👁‍🗨 А это ФИЧА!? 😈",
       functional: "💥 Открываешь сайт?\n💥 Нажиманшь на кнопку?\n💥 Вводишь пароль?\n💥 Не можешь найти заказ?💥",
-      content: "✍️ Ох, уж эта грамотность!\n✍️ Два раза - одно и то же?\n✍️ Это здесь вообще уместно?!\n✍️ А тут вообще половину забыли..."
+      content: "✍️ Ох, уж эта грамотность!\n✍️ Два раза - одно и то же?\n✍️ Это здесь вообще уместно?!\n✍️ А тут вообще половину забыли...",
+      perfomance: "🏃‍♂️ Еще секунда - и я уйду!\n🏃‍♂️ Опять завис?",
+      crash: "🚨🚨🚨\n🔦Помогите!"
     };
 
     Object.keys(messages).forEach(cls => {
