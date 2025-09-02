@@ -261,7 +261,7 @@ button.content, button.visual, button.functional, button.perfomance, button.cras
      alt="Хранитель Багов" width="205" style="margin-right: 10px;">
     
 <span><h1 class="blinking special-title">👻 Моргай медленнее! 😊<br>Ты уже видишь это?🐞 🐞 🐞</h1></span>
-
+     <body class="light">
     <button class="toggle light-btn">🌗 Да будет Ночь!<br>Или День?</button>
 </div>
   
@@ -406,8 +406,8 @@ button.content, button.visual, button.functional, button.perfomance, button.cras
 <script>  
   const btn = document.querySelector('.toggle');
 btn.addEventListener('click', () => {
-  document.body.classList.toggle('dark');
-  document.body.classList.toggle('light');
+  const isDark = document.body.classList.toggle('dark');
+  document.body.classList.toggle('light', !isDark);
 });
 </script>
   
