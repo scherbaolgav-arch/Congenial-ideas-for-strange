@@ -63,7 +63,9 @@
     }
 .png-dragon {
   width: 150px;
-  animation: spin 6s linear infinite;
+}
+.png-dragon.animated {
+     animation: spin 6s linear infinite;
 }
   
  body, body.light {
@@ -366,7 +368,7 @@ button.content, button.visual, button.functional, button.performance, button.cra
     <span class="tooltiptext">Успокой дракона</span>
   </div>
   
-  <div class="dragon-wrap">
+  <div class="dragon-wrap animated">
   <img src="https://cdn-icons-png.flaticon.com/128/5169/5169269.png" 
        alt="Дракон PNG" class="png-dragon">
 </div>
@@ -447,7 +449,7 @@ btn.addEventListener('click', () => {
 
 <script>
     const toggle = document.getElementById('dragon-toggle');
-    const dragon = document.querySelector('.emoji-dragon');
+    const dragon = document.querySelector('.emoji-dragon', '.png-dragon');
 
     toggle.addEventListener('change', () => {
       dragon.classList.toggle('animated', toggle.checked);
