@@ -454,7 +454,7 @@ btn.addEventListener('click', () => {
 
 <script>
     const toggle = document.getElementById('dragon-toggle');
-    const dragon = document.querySelector('.emoji-dragon', '.png-dragon');
+    const dragon = document.querySelectorAll('.emoji-dragon', '.png-dragon');
 
     toggle.addEventListener('change', () => {
       dragon.classList.toggle('animated', toggle.checked);
