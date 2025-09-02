@@ -47,6 +47,16 @@
   animation: twinkle 3s infinite alternate;
   pointer-events: none;
 }
+.star-btn {
+  font-size: 28px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+.star-btn:hover {
+  transform: scale(1.3) rotate(10deg);
+}
 
 .dragon-wrap {
   display: flex;
@@ -279,6 +289,8 @@ button.content, button.visual, button.functional, button.performance, button.cra
     
 <span><h1 class="blinking special-title">👻 Моргай медленнее! 😊<br>Ты уже видишь это?🐞 🐞 🐞</h1></span>
      <body class="light">
+<button id="toggleStars" class="star-btn">⭐</button>
+       
     <button class="toggle light-btn">🌗 Да будет Ночь!<br>Или День?</button>
 </div>
   
@@ -394,6 +406,20 @@ function createStar() {
 setInterval(createStar, 350);
 </script>
 
+<script>
+ let starsOn = true;
+ const starButton = document.getElementById("toggleStars");
+
+ starButton.addEventListener("click", () => {
+   starsOn = !starsOn;                                         // переключаем
+   starButton.textContent = starsOn ? "⭐" : "🌑";            // меняем иконку
+ });
+
+setInterval(() => {
+  if (starsOn) createStar();
+}, 350);
+</script>
+  
 <script>
   const messages = {
       create: "Воодушевись и сделай!",
