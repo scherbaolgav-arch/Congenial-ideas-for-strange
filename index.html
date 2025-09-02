@@ -37,11 +37,14 @@
 }
 
 .dragon {
-  display: block;
-  font-size: 42px;
-  margin: 10px auto;
-  text-align: center;
+  display: inline-block;
+  font-size: clamp(96px, 14vw, 220px);
   animation: twinkle 3s infinite alternate, colorChange 5s infinite linear;
+}
+  .dragon-wrap {
+  display: flex;
+  justify-content: center;
+  margin: 24px 0;
 }
   
  body {
@@ -338,10 +341,9 @@ button.content, button.visual, button.functional, button.perfomance, button.cras
       <button class="crash">Всё пропало?!⁉️</button></p>
   </div>
 
-<div class="tooltip">  
-  <button hidden id="dragon"></button>
-  <label for="dragon">🐉</label>
-  <span class="dragon tooltiptext">I'm Legacy code!</span></div>
+<div class="tooltip dragon-wrap">
+  <span class="dragon" role="img" aria-label="Дракон">🐉</span>
+  <span class="tooltiptext">I'm Legacy code!</span>
 </div>
     
   <script> 
