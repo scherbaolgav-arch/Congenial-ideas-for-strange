@@ -391,9 +391,10 @@ button.content, button.visual, button.functional, button.performance, button.cra
 </div>
 
   
-  <script> 
+<script>  
 let stars = 0;
 const STAR_LIMIT = 40;
+let starsOn = true;
 
 function createStar() {
   if (stars >= STAR_LIMIT) return;
@@ -407,21 +408,17 @@ function createStar() {
   star.style.top = `${y}px`;
   setTimeout(() => { star.remove(); stars--; }, 4000);
 }
-</script>
 
-<script>
- let starsOn = true;
- const starButton = document.getElementById("toggleStars");
+const starButton = document.getElementById("toggleStars");
+starButton.addEventListener("click", () => {
+  starsOn = !starsOn;                                               // переключаем
+  starButton.textContent = starsOn ? "⭐" : "🌑";                  // меняем иконку
+});
 
- starButton.addEventListener("click", () => {
-   starsOn = !starsOn;                                         // переключаем
-   starButton.textContent = starsOn ? "⭐" : "🌑";            // меняем иконку
- });
-
-setInterval(() => {
+setInterval(() => {                                                 // один-единственный интервал
   if (starsOn) createStar();
-}, 350);
-</script>
+}, 350);                         
+</script>  
   
 <script>
   const messages = {
