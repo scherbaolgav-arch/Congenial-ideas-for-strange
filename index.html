@@ -21,16 +21,16 @@
 }
 
 @keyframes twinkle {
-  from { transform: scale(1); }
-  to { transform: scale(1.1); }
+  from { opacity: 0.3; }
+  to   { opacity: 1; }
 }
 
 @keyframes colorChange {
   0%   { color: red; }
-  25%  { color: orange; }
-  50%  { color: green; }
-  75%  { color: blue; }
-  100% { color: purple; }
+  25%  { color: green; }
+  50%  { color: blue; }
+  75%  { color: purple; }
+  100% { color: orange; }
 }
   
 .star {
@@ -43,17 +43,16 @@
   pointer-events: none;
 }
 
-.dragon-wrap {
+.emoji-dragon-wrap {
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 24px 0;
 }
-.dragon {
-  display: inline-block;
+.emoji-dragon {
+  font-size: clamp(76px, 14vw, 174px);
   line-height: 1;
-  font-size: clamp(76px, 14vw, 174px); 
-  animation: twinkle 3s infinite alternate, colorChange 5s infinite linear;
+  animation: twinkle 2s infinite alternate, colorChange 5s infinite linear;
 }
   
  body, body.light {
@@ -347,8 +346,8 @@ button.content, button.visual, button.functional, button.performance, button.cra
   </div>
 
 <div class="tooltip dragon-wrap">
-  <img src="https://cdn-icons-png.flaticon.com/128/5169/5169269.png" 
-     alt="I'm Legacy code!">
+ 
+  <span class="emoji-dragon" role="img" aria-label="Эмодзи дракон">🐉</span>
   <span class="tooltiptext">Успокой дракона</span>
 </div>
     
