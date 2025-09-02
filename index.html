@@ -36,18 +36,18 @@
   pointer-events: none;
 }
 
-.dragon {
-  display: inline-block;
-  font-size: clamp(96px, 14vw, 220px);
-  animation: twinkle 3s infinite alternate, colorChange 5s infinite linear;
-}
   .dragon-wrap {
   display: flex;
   justify-content: center;
   margin: 24px 0;
 }
+  .dragon {
+  display: inline-block;
+  font-size: clamp(96px, 14vw, 220px);
+  animation: twinkle 3s infinite alternate, colorChange 5s infinite linear;
+}
   
- body {
+ body, body.light {
   margin: 0;
   padding: 25px 25px;
   overflow-x: hidden;
@@ -60,10 +60,6 @@
   min-height: 100vh; 
 }
 
-body.light {
-  background: #fff;
-  color: #000;
-}
 .light-btn {
   margin-left: auto; 
   font-size: 18px; 
