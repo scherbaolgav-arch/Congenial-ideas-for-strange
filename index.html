@@ -57,8 +57,10 @@
 .emoji-dragon {
   font-size: clamp(76px, 10vw, 174px);
   line-height: 1;
-  animation: twinkle 2s infinite alternate, colorChange 5s infinite linear;
 }
+.emoji-dragon.animated {
+      animation: twinkle 2s infinite alternate, colorChange 5s infinite linear;
+    }
 .png-dragon {
   width: 150px;
   animation: spin 6s linear infinite;
@@ -354,11 +356,16 @@ button.content, button.visual, button.functional, button.performance, button.cra
       <button class="crash">Всё пропало?!⁉️</button></p>
   </div>
 
-<div class="tooltip dragon-wrap">
-  <span class="emoji-dragon" role="img" aria-label="Эмодзи дракон">🐉</span>
-  <span class="tooltiptext">Успокой дракона</span>
-</div>
-
+  <label>
+    <input type="checkbox" id="dragon-toggle" checked>
+    Останови меня!
+  </label>
+  
+  <div class="tooltip dragon-wrap">
+    <span class="emoji-dragon animated" role="img" aria-label="Эмодзи дракон">🐉</span>
+    <span class="tooltiptext">Успокой дракона</span>
+  </div>
+  
   <div class="dragon-wrap">
   <img src="https://cdn-icons-png.flaticon.com/128/5169/5169269.png" 
        alt="Дракон PNG" class="png-dragon">
@@ -435,6 +442,15 @@ btn.addEventListener('click', () => {
    document.querySelector(".accordion").addEventListener("click", function () {
       const panel = document.querySelector(".panel");
       panel.classList.toggle("open");
+    });
+</script>
+
+<script>
+    const toggle = document.getElementById('dragon-toggle');
+    const dragon = document.querySelector('.emoji-dragon');
+
+    toggle.addEventListener('change', () => {
+      dragon.classList.toggle('animated', toggle.checked);
     });
 </script>
     
