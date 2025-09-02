@@ -19,7 +19,12 @@
 .blinking {
   animation: blink 6s infinite;
 }
-
+  
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+  
 @keyframes twinkle {
   from { opacity: 0.3; }
   to   { opacity: 1; }
@@ -53,6 +58,10 @@
   font-size: clamp(76px, 14vw, 174px);
   line-height: 1;
   animation: twinkle 2s infinite alternate, colorChange 5s infinite linear;
+}
+.png-dragon {
+  width: 150px;
+  animation: spin 6s linear infinite;
 }
   
  body, body.light {
@@ -348,6 +357,11 @@ button.content, button.visual, button.functional, button.performance, button.cra
 <div class="tooltip dragon-wrap">
   <span class="emoji-dragon" role="img" aria-label="Эмодзи дракон">🐉</span>
   <span class="tooltiptext">Успокой дракона</span>
+</div>
+
+  <div class="dragon-wrap">
+  <img src="https://cdn-icons-png.flaticon.com/128/5169/5169269.png" 
+       alt="Дракон PNG" class="png-dragon">
 </div>
     
   <script> 
