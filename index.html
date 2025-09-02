@@ -359,19 +359,21 @@ button.content, button.visual, button.functional, button.performance, button.cra
   </div>
 
   <label>
-    <input type="checkbox" id="dragon-toggle" checked>
-    Останови меня!
-  </label>
-  
-  <div class="tooltip dragon-wrap">
-    <span class="emoji-dragon animated" role="img" aria-label="Эмодзи дракон">🐉</span>
-    <span class="tooltiptext">Успокой дракона</span>
-  </div>
-  
-  <div class="dragon-wrap">
+  <input type="checkbox" id="dragon-toggle" checked>
+  Останови драконов!
+</label>
+
+<div class="tooltip dragon-wrap">
+  <span class="emoji-dragon animated" role="img" aria-label="Эмодзи дракон">🐉</span>
+  <span class="tooltiptext">Успокой дракона</span>
+</div>
+
+<div class="tooltip dragon-wrap">
   <img src="https://cdn-icons-png.flaticon.com/128/5169/5169269.png" 
-       alt="Дракон PNG" class="png-dragon animated">
- </div>  
+       alt="PNG дракон" class="png-dragon animated">
+  <span class="tooltiptext">Поймай дракона</span>
+</div>
+
   
   <script> 
 let stars = 0;
@@ -447,13 +449,15 @@ btn.addEventListener('click', () => {
     });
 </script>
 
-<script>
-    const toggle = document.getElementById('dragon-toggle');
-    const dragon = document.querySelectorAll('.emoji-dragon', '.png-dragon');
+  <script>
+const toggle = document.getElementById('dragon-toggle');
+const dragons = document.querySelectorAll('.emoji-dragon, .png-dragon');
 
-    toggle.addEventListener('change', () => {
-      dragon.classList.toggle('animated', toggle.checked);
-    });
+toggle.addEventListener('change', () => {
+  dragons.forEach(dragon => {
+    dragon.classList.toggle('animated', toggle.checked);
+  });
+});
 </script>
     
 </body>
