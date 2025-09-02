@@ -16,7 +16,7 @@
   0%, 100% { opacity: 0.7; }
   50% { opacity: 0.1; }
 }
-.blinking {
+.blinking.animated {
   animation: blink 6s infinite;
 }
   
@@ -478,11 +478,12 @@ btn.addEventListener('click', () => {
   <script>
 const toggle = document.getElementById('dragon-toggle');
 const dragons = document.querySelectorAll('.emoji-dragon, .png-dragon');
+const title = document.querySelector('.special-title');
+const titleCheckbox = document.getElementById("toggleTitleBlink");
 
 toggle.addEventListener('change', () => {
-  dragons.forEach(dragon => {
-    dragon.classList.toggle('animated', toggle.checked);
-  });
+  dragons.forEach(dragon => dragon.classList.toggle('animated', toggle.checked));
+  title.classList.toggle('blinking', toggle.checked);
 });
 </script>
     
