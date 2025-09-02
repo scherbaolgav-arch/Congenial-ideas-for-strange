@@ -344,20 +344,22 @@ button.content, button.visual, button.functional, button.perfomance, button.cras
 </div>
     
   <script> 
-  function createStar() {
-      const star = document.createElement("div");
-      star.classList.add("star");
-      document.body.appendChild(star);
+let stars = 0;
+const STAR_LIMIT = 40;
 
-      const x = Math.random() * window.innerWidth;
-      const y = Math.random() * window.innerHeight;
-      star.style.left = `${x}px`;
-      star.style.top = `${y}px`;
-
-      setTimeout(() => star.remove(), 4000);
-    }
-
-    setInterval(createStar, 200);
+function createStar() {
+  if (stars >= STAR_LIMIT) return;
+  const star = document.createElement("div");
+  star.classList.add("star");
+  stars++;
+  document.body.appendChild(star);
+  const x = Math.random() * window.innerWidth;
+  const y = Math.random() * window.innerHeight;
+  star.style.left = `${x}px`;
+  star.style.top = `${y}px`;
+  setTimeout(() => { star.remove(); stars--; }, 4000);
+}
+setInterval(createStar, 350);
 </script>
 
 <script>
