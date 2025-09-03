@@ -558,12 +558,12 @@ reducedMotionBtn.addEventListener("click", () => {
       body.classList.add("reducedmotion");          // стоп анимации через CSS
       stopStars();                               // стоп генерации звезд
       toggleBtn.textContent = "🐢";
-      motionStatus.textContent = "Анимации отключены 💤";
+      motionStatus.textContent = "Анимации\n отключены 💤";
     } else {
       body.classList.remove("reducedmotion");
       startStars();                               // включаем генерацию обратно
       toggleBtn.textContent = "🙈";
-      motionStatus.textContent = "Анимации включены ✨";
+      motionStatus.textContent = "Анимации\n включены ✨";
     }
   });
 
