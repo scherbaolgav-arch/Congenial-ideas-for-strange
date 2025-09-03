@@ -512,6 +512,15 @@ titleCheckbox.addEventListener("change", () => {   // 'слушаем событ
 });
 </script>
 
+<script>   
+ const reducedMotionBtn = document.getElementById("toggleReducedMotion");
+
+reducedMotionBtn.addEventListener("click", () => {
+  document.body.classList.toggle("reducedmotion");
+  reducedMotionBtn.textContent = 
+    document.body.classList.contains("reducedmotion") ? "🐢" : "🙈";
+});  
+</script>
   
 </body>
 </html>
