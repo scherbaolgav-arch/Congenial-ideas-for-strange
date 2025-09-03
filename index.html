@@ -282,37 +282,37 @@ button.content, button.visual, button.functional, button.performance, button.cra
 </head>
   
 <body>
-                                                  /* тело страницы */
+                                                 
   <div style="display: flex;">                                                              
 <img src="https://i.pinimg.com/1200x/b3/0a/30/b30a3068247de4bce5fc20f4b537383d.jpg" 
      alt="Хранитель Багов" width="205" style="margin-right: 10px;">        
-                                              /* спец. заголовок "👻" */
+                                             
 <span><h1 class="blinking special-title">👻 Моргай медленнее! 😊<br>Ты уже видишь это?🐞 🐞 🐞</h1></span>
      <body class="light">
-                                           /* чекбокс для отключения мигания спец. заголовока */         
+                                               
 <label>
   <input type="checkbox" id="toggleTitleBlink"> 👻 Не моргай! 
 </label>
-                                           /* кнопка-звезда для отключения генерации "звезд" */
+                                          
 <button id="toggleStars" class="star-btn">⭐</button>
-                                         /* кнопка для вкл ночнго режима */
+                                         
     <button class="toggle light-btn">🌗 Да будет Ночь!<br>Или День?</button>
 </div>
-                                                 /* заголовок значимости h1 */
+                                                
   <h1>🌟Легенда: «Хроники Хранителя Багов»🌟</h1>
-                                                /* секция */
+                                               
 <section>
   <h2>⚔️ Ты — Хранитель Багов! 👤🎒👓<br>
-                                    /* создание поля для ввода имени героя + кнопка */
-  <input type="text" id="heroInput" placeholder="Введи имя героя">               /* тип ввода=текст, id=геройВвод, заполнитель="..." */
-  <button class="hero-btn" onclick="showHero()">Что же дальше?!🔮></button>      /* кнопка с классом=..., по клику=показатьГероя()>...< */
-                                      /* вывод на экран "Добро пожаловаь, герой "..." */
+                                   
+  <input type="text" id="heroInput" placeholder="Введи имя героя">               
+  <button class="hero-btn" onclick="showHero()">Что же дальше?!🔮></button>      
+                                      
     <div id="output"></div> 
   </h2>
-                                                 /* параграф */
+                                               
   <p>☀️ Каждый день тебе открывается Портал JIRA — врата в мир Задач и Событий. 
   Чтобы мир оставался в порядке, выполняй ритуалы:</p>
-                                      /* неупорядоченный список с его пунктами */
+                                     
   <ul>
     <li>
     <span>🌸</span>                                   
@@ -374,17 +374,17 @@ button.content, button.visual, button.functional, button.performance, button.cra
     <p>👉 Crash 🐞
       <button class="crash">Всё пропало?!⁉️</button></p>
   </div>
-                                  /* чекбокс для отключения анимации драконов  */ 
+                                  
   <label>
   <input type="checkbox" id="dragon-toggle" checked>
   Останови драконов!
 </label>
-                               /* эмодз-дркон  */
+                              
 <div class="tooltip dragon-wrap">
   <span class="emoji-dragon animated" role="img" aria-label="Эмодзи дракон">🐉</span>
   <span class="tooltiptext">Успокой дракона</span>
 </div>
-                             /* PNG дракон  */
+                             
 <div class="tooltip dragon-wrap">
   <img src="https://cdn-icons-png.flaticon.com/128/5169/5169269.png" 
        alt="PNG дракон" class="png-dragon animated">
@@ -441,9 +441,9 @@ setInterval(() => {                                                 // один-
       }
     });
 </script>
-  
+                        /* запускает ф-цию открытия ссылку в новом окне  */
 <script>
-  document.getElementById("moveBtn").addEventListener("click", () => {
+  document.getElementById("moveBtn").addEventListener("click", () => {     // 'слушаем событие' → "клик"
     window.open("https://www.atlassian.com/", "_blank");
   });
 </script>
