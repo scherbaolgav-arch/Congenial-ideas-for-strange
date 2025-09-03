@@ -391,7 +391,7 @@ button.content, button.visual, button.functional, button.performance, button.cra
   <span class="tooltiptext">Поймай дракона</span>
 </div>
 
-             /* запуск ф-ции генерации случайных звёзд */
+             /* запуск ф-ции генерации случайных звёзд + отключение звезд ч/з нажатие на кнопку */
 <script>  
 let stars = 0;                  
 const STAR_LIMIT = 40;      // постоянная звездного_лимита
@@ -399,7 +399,7 @@ let starsOn = true;        // пусть звёздыВключены = исти
 function createStar() {       // функция созданияЗвезды
   if (stars >= STAR_LIMIT) return;   // если звезд >= STAR_LIMIT → выполнение функции прекращается, и передается туда, где функция была вызвана
   const star = document.createElement("div");   
-  star.classList.add("star");     // включить класс звезда
+  star.classList.add("star");     // включить стиль звезда, ч/з его класс
   stars++;
   document.body.appendChild(star);
   const x = Math.random() * window.innerWidth;    // случайное место по экрану
@@ -408,8 +408,8 @@ function createStar() {       // функция созданияЗвезды
   star.style.top = `${y}px`;
   setTimeout(() => { star.remove(); stars--; }, 4000);
 }
-// управление звёздами
-const starButton = document.getElementById("toggleStars");       // получить элемент по идентификатору (в html кнопка star-btn)
+// управление звёздами                                              
+const starButton = document.getElementById("toggleStars");       // найти и получить объект по идентификатору (в html кнопка star-btn)
 starButton.addEventListener("click", () => {                // 'слушаем событие' → "клик"
   starsOn = !starsOn;                                               // переключаем
   starButton.textContent = starsOn ? "⭐" : "🌑";                  // меняем иконку
@@ -441,52 +441,60 @@ setInterval(() => {                                                 // один-
       }
     });
 </script>
-                        /* запускает ф-цию открытия ссылку в новом окне  */
+                        /* запускает открытие ссылки в новом окне */
 <script>
   document.getElementById("moveBtn").addEventListener("click", () => {     // 'слушаем событие' → "клик"
     window.open("https://www.atlassian.com/", "_blank");
   });
 </script>
-
+                        /* запускает ф-цию ввода/вывода имени героя */    
   <script>
     function showHero() {
-      const input = document.getElementById("heroInput").value;
-      const output = document.getElementById("output");
+      const input = document.getElementById("heroInput").value;   // найти и получить ссылку на объект со знач: id="heroInput" (в html)
+      const output = document.getElementById("output");     // найти и получить ссылку на объект со знач: id="output" (в html)
       if (input.trim() !== "") {
-        output.textContent = `Добро пожаловать, храбрый герой ${input}!`;
+        output.textContent = `Добро пожаловать, храбрый герой ${input}!`; 
       } else {
         output.textContent = "Ты забыл ввести имя!";
       }
     }
   </script>
-
+                     /* запускает ф-цию переключения на тёмную тему */
 <script>  
-  const btn = document.querySelector('.toggle');
-btn.addEventListener('click', () => {
-  const isDark = document.body.classList.toggle('dark');
-  document.body.classList.toggle('light', !isDark);
+  const btn = document.querySelector('.toggle');    // находит эл-т (переключатель)
+btn.addEventListener('click', () => {            // 'слушаем событие' → "кликнуть"
+  const isDark = document.body.classList.toggle('dark');    // вкл/выкл стиль ч/з класс body.dark
+  document.body.classList.toggle('light', !isDark);      // вкл/выкл стиль ч/з класс body.light
+});
+</script>
+                  /* запускает ф-цию открытия панели у аккордеона */
+<script> 
+   document.querySelector(".accordion").addEventListener("click", function () {   // находит эл-т (аккордеон); // 'слушаем событие' → "кликнуть" 
+      const panel = document.querySelector(".panel");  // находит эл-т (панель)
+      panel.classList.toggle("open");   // панель переключается в состояние "открыта"
+    });
+</script>
+                           /* запускает ф-цию вкл/выкл анимации у драконов (чекбокс)  */
+<script>
+const toggle = document.getElementById('dragon-toggle');   // найти и получить ссылку на объект со знач: id="dragon-toggle" (в html)
+const dragons = document.querySelectorAll('.emoji-dragon, .png-dragon'); // находит эл-т (эмодзи-дракона, png-дракона)
+
+toggle.addEventListener('change', () => {    // 'слушаем событие' → "изменить"
+   dragons.forEach(dragon => {
+    dragon.classList.toggle('animated', toggle.checked); // добавляет/удаляет CSS-класса к элементу
+  });
+});
+</script>
+                        /* запускает ф-цию вкл/выкл анимации у заголовка (чекбокс)  */
+<script>
+  const title = document.querySelector('.special-title');   // находит эл-т (спец. заголовок)
+const titleCheckbox = document.getElementById("toggleTitleBlink"); // найти и получить ссылку на объект со знач: id="toggleTitleBlink" (в html чекбокс)
+
+titleCheckbox.addEventListener("change", () => {   // 'слушаем событие' → "изменить"
+  title.classList.toggle("animated", titleCheckbox.checked); // добавляет/удаляет CSS-класса к элементу
 });
 </script>
   
-<script> 
-   document.querySelector(".accordion").addEventListener("click", function () {
-      const panel = document.querySelector(".panel");
-      panel.classList.toggle("open");
-    });
-</script>
-
-  <script>
-const toggle = document.getElementById('dragon-toggle');
-const dragons = document.querySelectorAll('.emoji-dragon, .png-dragon');
-const title = document.querySelector('.special-title');
-const titleCheckbox = document.getElementById("toggleTitleBlink");
-
-toggle.addEventListener('change', () => {
-  dragons.forEach(dragon => dragon.classList.toggle('animated', toggle.checked));
-  title.classList.toggle('blinking', toggle.checked);
-});
-</script>
-    
 </body>
 </html>
 
