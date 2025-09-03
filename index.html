@@ -11,15 +11,21 @@
     transition: none !important; 
   }
 }
-.reduced-motion-btn {             /* кнопка-звезда: вкл/выкл режимf без анимаций */ 
+.reduced-motion {
+  position: fixed;
+  width: 15px; height: 15px;
+  background: rgba(255, 255, 0, 0.7);
+  border-radius: 70%;
+  opacity: 0.7;
+  animation: twinkle 3s infinite alternate;        /* анимация, к-рая прописывает мерцание */  
+  pointer-events: none;
+}
+.reduced-motion-btn {             /* кнопка: вкл/выкл режим без анимаций */ 
   font-size: 36px;
   background: transparent;
   border: none;
   cursor: pointer;
   transition: transform 0.1s;
-}
-.reduced-motion:hover {                          /* при наведении на star-btn курсора мыши → состояние :hover */ 
-  transform: scale(1.3) rotate(10deg);         /* cale(1.3) увеличивает в размере в 1.3 раза (130%) и rotate(10deg) поворачивает на 10 градусов по часовой стрелке  */        
 }
   
 @keyframes blink {                 /* «(правило) режим мигание» */
