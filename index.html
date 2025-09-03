@@ -301,7 +301,7 @@ button.content, button.visual, button.functional, button.performance, button.cra
   <div style="display: flex;">   
 <span>   
  <button id="toggleReducedMotion" class="reducedmotion-btn">🙈</button><br>
- <span id="motionStatus">Анимации<br>включены<br>✨</span>
+ <span id="motionStatus">Анимации<br>включены ✨</span>
 </span> 
     
 <img src="https://i.pinimg.com/1200x/b3/0a/30/b30a3068247de4bce5fc20f4b537383d.jpg" 
@@ -558,12 +558,12 @@ reducedMotionBtn.addEventListener("click", () => {
       body.classList.add("reducedmotion");          // стоп анимации через CSS
       stopStars();                               // стоп генерации звезд
       toggleBtn.textContent = "🐢";
-      motionStatus.textContent = "Анимации\n отключены 💤";
+      motionStatus.textContent = "Анимации\nотключены 💤";
     } else {
       body.classList.remove("reducedmotion");
       startStars();                               // включаем генерацию обратно
       toggleBtn.textContent = "🙈";
-      motionStatus.textContent = "Анимации\n включены ✨";
+      motionStatus.textContent = "Анимации\nвключены ✨";
     }
   });
 
