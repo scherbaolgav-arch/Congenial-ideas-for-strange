@@ -11,17 +11,17 @@
     transition: none !important; 
   }
 }
-  body.reducedmotion * {
+body.reducedmotion * {               /* тело + тело в "режим без анимаций" */  
   animation: none !important;
   transition: none !important;
 }
-.reducedmotion-btn {              
+.reducedmotion-btn {             /* кнопка-звезда: вкл/выкл режима без анимаций */     
   font-size: 36px;
   background: transparent;
   border: none;
   cursor: pointer;
   transition: transform 0.2s;
-  opacity: 1;         /* кнопка видна */
+  opacity: 1;            /* кнопка видна */
 }
 .reducedmotion-btn:hover {
   transform: scale(1.3) rotate(10deg);
@@ -512,7 +512,7 @@ titleCheckbox.addEventListener("change", () => {   // 'слушаем событ
 });
 </script>
 
-<script>   
+<script>               /* запускает ф-цию вкл/выкл режима без анимаций (кнопка)  */
  const reducedMotionBtn = document.getElementById("toggleReducedMotion");
 
 reducedMotionBtn.addEventListener("click", () => {
