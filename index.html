@@ -519,7 +519,7 @@ titleCheckbox.addEventListener("change", () => {   // 'слушаем событ
 });
 </script>
 
-<script>               /* запускает ф-цию вкл/выкл режима без анимаций (кнопка)  */
+<script>               /* запускает ф-цию вкл/выкл режима без анимаций (кнопка🙈)  */
  const reducedMotionBtn = document.getElementById("toggleReducedMotion");
 
 reducedMotionBtn.addEventListener("click", () => {
@@ -527,6 +527,47 @@ reducedMotionBtn.addEventListener("click", () => {
   reducedMotionBtn.textContent = 
     document.body.classList.contains("reducedmotion") ? "🐢" : "🙈";
 });  
+</script>
+
+<script>                                     /* запускает ф-цию вкл/выкл режима звезд (кнопка🙈)  */
+  const toggleBtn = document.getElementById("toggleReducedMotion");
+  const motionStatus = document.getElementById("motionStatus");
+  const body = document.body;
+
+  let reducedMotion = false;
+  let starInterval;                            // сюда сохраним setInterval
+
+  
+  function startStars() {                          // Запуск генерации звезд
+    if (!starInterval) {
+      starInterval = setInterval(createStar, 350);
+    }
+  }
+
+ 
+  function stopStars() {                    // Остановка генерации звезд
+    clearInterval(starInterval);
+    starInterval = null;
+  }
+
+  toggleBtn.addEventListener("click", () => {
+    reducedMotion = !reducedMotion;
+
+    if (reducedMotion) {
+      body.classList.add("reducedmotion");          // стоп анимации через CSS
+      stopStars();                               // стоп генерации звезд
+      toggleBtn.textContent = "🐢";
+      motionStatus.textContent = "Анимации отключены 💤";
+    } else {
+      body.classList.remove("reducedmotion");
+      startStars();                               // включаем генерацию обратно
+      toggleBtn.textContent = "🙈";
+      motionStatus.textContent = "Анимации включены ✨";
+    }
+  });
+
+  
+  startStars();    // Сразу запускаем звезды при загрузке
 </script>
   
 </body>
