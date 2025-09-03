@@ -11,12 +11,15 @@
     transition: none !important; 
   }
 }
-.reduced-motion-btn {
+.reduced-motion-btn {             /* кнопка-звезда: вкл/выкл режимf без анимаций */ 
   font-size: 36px;
   background: transparent;
   border: none;
   cursor: pointer;
   transition: transform 0.1s;
+}
+.reduced-motion:hover {                          /* при наведении на star-btn курсора мыши → состояние :hover */ 
+  transform: scale(1.3) rotate(10deg);         /* cale(1.3) увеличивает в размере в 1.3 раза (130%) и rotate(10deg) поворачивает на 10 градусов по часовой стрелке  */        
 }
   
 @keyframes blink {                 /* «(правило) режим мигание» */
