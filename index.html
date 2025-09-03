@@ -391,8 +391,8 @@ button.content, button.visual, button.functional, button.performance, button.cra
   <span class="tooltiptext">Поймай дракона</span>
 </div>
 
-             /* запуск ф-ции генерации случайных звёзд + отключение звезд ч/з нажатие на кнопку */
-<script>  
+            
+<script>             /* запуск ф-ции генерации случайных звёзд + отключение звезд ч/з нажатие на кнопку */
 let stars = 0;                  
 const STAR_LIMIT = 40;      // постоянная звездного_лимита
 let starsOn = true;        // пусть звёздыВключены = истина
@@ -419,8 +419,8 @@ setInterval(() => {                                                 // один-
   if (starsOn) createStar();
 }, 350);                         
 </script>  
-                            /* запуск ф-ции алерт (предупреждение о важном событии) */
-<script>
+                            
+<script>                       /* запуск ф-ции алерт (предупреждение о важном событии) */
   const messages = {
       create: "Воодушевись и сделай!",
       priority: "Как быстро нужно его победить?!",
@@ -441,14 +441,14 @@ setInterval(() => {                                                 // один-
       }
     });
 </script>
-                        /* запускает открытие ссылки в новом окне */
-<script>
+                       
+<script>                     /* запускает открытие ссылки в новом окне */
   document.getElementById("moveBtn").addEventListener("click", () => {     // 'слушаем событие' → "клик"
     window.open("https://www.atlassian.com/", "_blank");
   });
 </script>
-                        /* запускает ф-цию ввода/вывода имени героя */    
-  <script>
+                          
+  <script>                            /* запускает ф-цию ввода/вывода имени героя */  
     function showHero() {
       const input = document.getElementById("heroInput").value;   // найти и получить ссылку на объект со знач: id="heroInput" (в html)
       const output = document.getElementById("output");     // найти и получить ссылку на объект со знач: id="output" (в html)
@@ -459,23 +459,23 @@ setInterval(() => {                                                 // один-
       }
     }
   </script>
-                     /* запускает ф-цию переключения на тёмную тему */
-<script>  
+                     
+<script>                    /* запускает ф-цию переключения на тёмную тему */
   const btn = document.querySelector('.toggle');    // находит эл-т (переключатель)
 btn.addEventListener('click', () => {            // 'слушаем событие' → "кликнуть"
   const isDark = document.body.classList.toggle('dark');    // вкл/выкл стиль ч/з класс body.dark
   document.body.classList.toggle('light', !isDark);      // вкл/выкл стиль ч/з класс body.light
 });
 </script>
-                  /* запускает ф-цию открытия панели у аккордеона */
-<script> 
+                  
+<script>                              /* запускает ф-цию открытия панели у аккордеона */
    document.querySelector(".accordion").addEventListener("click", function () {   // находит эл-т (аккордеон); // 'слушаем событие' → "кликнуть" 
       const panel = document.querySelector(".panel");  // находит эл-т (панель)
       panel.classList.toggle("open");   // панель переключается в состояние "открыта"
     });
 </script>
-                           /* запускает ф-цию вкл/выкл анимации у драконов (чекбокс)  */
-<script>
+                          
+<script>                        /* запускает ф-цию вкл/выкл анимации у драконов (чекбокс)  */
 const toggle = document.getElementById('dragon-toggle');   // найти и получить ссылку на объект со знач: id="dragon-toggle" (в html)
 const dragons = document.querySelectorAll('.emoji-dragon, .png-dragon'); // находит эл-т (эмодзи-дракона, png-дракона)
 
@@ -485,8 +485,8 @@ toggle.addEventListener('change', () => {    // 'слушаем событие' 
   });
 });
 </script>
-                        /* запускает ф-цию вкл/выкл анимации у заголовка (чекбокс)  */
-<script>
+                        
+<script>                        /* запускает ф-цию вкл/выкл анимации у заголовка (чекбокс)  */
   const title = document.querySelector('.special-title');   // находит эл-т (спец. заголовок)
 const titleCheckbox = document.getElementById("toggleTitleBlink"); // найти и получить ссылку на объект со знач: id="toggleTitleBlink" (в html чекбокс)
 
