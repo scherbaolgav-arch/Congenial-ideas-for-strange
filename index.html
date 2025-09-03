@@ -312,6 +312,7 @@ button.content, button.visual, button.functional, button.performance, button.cra
 </label>
                                           
 <button id="toggleStars" class="star-btn">⭐</button>
+  <span id="starsStatus">Звёзды включены</span>
                                          
     <button class="toggle light-btn">🌗 Да будет Ночь!<br>Или День?</button>
 </div>
@@ -430,11 +431,13 @@ const starButton = document.getElementById("toggleStars");       // найти �
 starButton.addEventListener("click", () => {                // 'слушаем событие' → "клик"
   starsOn = !starsOn;                                               // переключаем
   starButton.textContent = starsOn ? "⭐" : "🌑";                  // меняем иконку
+  document.getElementById("starsStatus").textContent = 
+    starsOn ? "Звёзды включены" : "Звёзды выключены";
 });
 // Запускаем "падение звёзд"
 setInterval(() => {                                                 // один-единственный интервал
   if (starsOn) createStar();
-}, 350);                         
+}, 350);     
 </script>  
                             
 <script>                       /* запуск ф-ции алерт (предупреждение о важном событии) */
