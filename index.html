@@ -299,10 +299,10 @@ button.content, button.visual, button.functional, button.performance, button.cra
 <body>
                                                  
   <div style="display: flex;">   
-<span>   
- <button id="toggleReducedMotion" class="reducedmotion-btn">🙈</button><br>
- <span id="motionStatus">Анимации<br>включены ✨</span>
-</span> 
+<span>
+  <button id="toggleReducedMotion" class="reducedmotion-btn">🙈</button><br>
+  <span id="motionStatus">Анимации<br>включены ✨</span>
+</span>    
     
 <img src="https://i.pinimg.com/1200x/b3/0a/30/b30a3068247de4bce5fc20f4b537383d.jpg" 
      alt="Хранитель Багов" width="205" style="margin-right: 10px;">        
@@ -313,10 +313,10 @@ button.content, button.visual, button.functional, button.performance, button.cra
 <label>
   <input type="checkbox" id="toggleTitleBlink"> 👻<br>Нажми меня! 
 </label>                                        
-
-<span>           
+  
+<span>
   <button id="toggleStars" class="star-btn">⭐</button><br>
-  <span id="starsStatus">Звёзды включены</span>
+  <span id="starsStatus">Звёзды<br>включены ✨</span>
 </span>       
                                       
     <button class="toggle light-btn">🌗 Да будет Ночь!<br>Или День?</button>
@@ -413,37 +413,7 @@ button.content, button.visual, button.functional, button.performance, button.cra
        alt="PNG дракон" class="png-dragon animated">
   <span class="tooltiptext">Поймай дракона</span>
 </div>
-
             
-<script>             /* запуск ф-ции генерации случайных звёзд + отключение звезд ч/з нажатие на кнопку */
-let stars = 0;                  
-const STAR_LIMIT = 40;      // постоянная звездного_лимита
-let starsOn = true;        // пусть звёздыВключены = истина
-function createStar() {       // функция созданияЗвезды
-  if (stars >= STAR_LIMIT) return;   // если звезд >= STAR_LIMIT → выполнение функции прекращается, и передается туда, где функция была вызвана
-  const star = document.createElement("div");   
-  star.classList.add("star");     // включить стиль звезда, ч/з его класс
-  stars++;
-  document.body.appendChild(star);
-  const x = Math.random() * window.innerWidth;    // случайное место по экрану
-  const y = Math.random() * window.innerHeight;
-  star.style.left = `${x}px`;         // случайный размер
-  star.style.top = `${y}px`;
-  setTimeout(() => { star.remove(); stars--; }, 4000);
-}
-// управление звёздами                                              
-const starButton = document.getElementById("toggleStars");       // найти и получить объект по идентификатору (в html кнопка star-btn)
-starButton.addEventListener("click", () => {                // 'слушаем событие' → "клик"
-  starsOn = !starsOn;                                               // переключаем
-  starButton.textContent = starsOn ? "⭐" : "🌑";                  // меняем иконку
-  document.getElementById("starsStatus").textContent = 
-    starsOn ? "Звёзды\nвключены" : "Звёзды\nвыключены";
-});
-// Запускаем "падение звёзд"
-setInterval(() => {                                                 // один-единственный интервал
-  if (starsOn) createStar();
-}, 350);     
-</script>  
                             
 <script>                       /* запуск ф-ции алерт (предупреждение о важном событии) */
   const messages = {
@@ -530,45 +500,80 @@ reducedMotionBtn.addEventListener("click", () => {
 });  
 </script>
 
-<script>                                     /* запускает ф-цию вкл/выкл режима звезд (кнопка🙈)  */
-  const toggleBtn = document.getElementById("toggleReducedMotion");
-  const motionStatus = document.getElementById("motionStatus");
-  const body = document.body;
+<script>
+/* -------------------
+   Общая логика звёзд
+------------------- */
+let stars = 0;
+const STAR_LIMIT = 40;
+let starsOn = true;
+let reducedMotion = false;
+let starInterval;
 
-  let reducedMotion = false;
-  let starInterval;                            // сюда сохраним setInterval
+function createStar() {
+  if (!starsOn || reducedMotion) return; // не создаём, если звёзды выкл или режим reduceMotion
+  if (stars >= STAR_LIMIT) return;
 
-  
-  function startStars() {                          // Запуск генерации звезд
-    if (!starInterval) {
-      starInterval = setInterval(createStar, 350);
-    }
+  const star = document.createElement("div");
+  star.classList.add("star");
+  stars++;
+  document.body.appendChild(star);
+
+  const x = Math.random() * window.innerWidth;
+  const y = Math.random() * window.innerHeight;
+  star.style.left = `${x}px`;
+  star.style.top = `${y}px`;
+
+  setTimeout(() => { star.remove(); stars--; }, 4000);
+}
+
+function startStars() {
+  if (!starInterval) {
+    starInterval = setInterval(createStar, 350);
   }
+}
+function stopStars() {
+  clearInterval(starInterval);
+  starInterval = null;
+}
 
- 
-  function stopStars() {                    // Остановка генерации звезд
-    clearInterval(starInterval);
-    starInterval = null;
+/* -------------------
+   Кнопка "звёзды" ⭐
+------------------- */
+const starButton = document.getElementById("toggleStars");
+const starsStatus = document.getElementById("starsStatus");
+
+starButton.addEventListener("click", () => {
+  starsOn = !starsOn;
+  starButton.textContent = starsOn ? "⭐" : "🌑";
+  starsStatus.textContent = starsOn ? "Звёзды\nвключены ✨" : "Звёзды\nвыключены";
+});
+
+/* -------------------
+   Кнопка "анимации" 🙈
+------------------- */
+const toggleBtn = document.getElementById("toggleReducedMotion");
+const motionStatus = document.getElementById("motionStatus");
+const body = document.body;
+
+toggleBtn.addEventListener("click", () => {
+  reducedMotion = !reducedMotion;
+
+  if (reducedMotion) {
+    body.classList.add("reducedmotion"); // стоп анимации через CSS
+    toggleBtn.textContent = "🐢";
+    motionStatus.textContent = "Анимации\nотключены 💤";
+  } else {
+    body.classList.remove("reducedmotion");
+    toggleBtn.textContent = "🙈";
+    motionStatus.textContent = "Анимации\nвключены ✨";
   }
+});
 
-  toggleBtn.addEventListener("click", () => {
-    reducedMotion = !reducedMotion;
-
-    if (reducedMotion) {
-      body.classList.add("reducedmotion");          // стоп анимации через CSS
-      stopStars();                               // стоп генерации звезд
-      toggleBtn.textContent = "🐢";
-      motionStatus.textContent = "Анимации\nотключены 💤";
-    } else {
-      body.classList.remove("reducedmotion");
-      startStars();                               // включаем генерацию обратно
-      toggleBtn.textContent = "🙈";
-      motionStatus.textContent = "Анимации\nвключены ✨";
-    }
-  });
-
-  
-  startStars();    // Сразу запускаем звезды при загрузке
+/* -------------------
+   Автостарт
+------------------- */
+startStars();
 </script>
   
 </body>
